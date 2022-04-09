@@ -15,7 +15,8 @@ export default class Piece {
     c.fillStyle = color;
     c.fillRect(x * SQ, y * SQ, SQ, SQ);
 
-    c.strokeStyle = "Black";
+    // c.globalAlpha = 0.5;
+    c.strokeStyle = "black";
     c.strokeRect(x * SQ, y * SQ, SQ, SQ);
   }
   draw(c) {
@@ -26,6 +27,7 @@ export default class Piece {
       }
     }
   }
+
   undraw(c) {
     for (let r = 0; r < this.activeTetromino.length; r++) {
       for (let col = 0; col < this.activeTetromino.length; col++) {
@@ -107,8 +109,6 @@ export default class Piece {
         }
         this.locked = true;
         board[this.x + c][this.y + r] = this.color;
-        // board[1][1] = this.color;
-        // console.log(this.activeTetromino);
       }
     }
   }
